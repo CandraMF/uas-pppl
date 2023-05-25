@@ -27,8 +27,10 @@ class Observer extends BlocObserver {
       );
 
       try {
-        final currData = jsonDecode(change.currentState.toString()) as Map<String, dynamic>;
-        final nextData = jsonDecode(change.nextState.toString()) as Map<String, dynamic>;
+        final currData =
+            jsonDecode(change.currentState.toString()) as Map<String, dynamic>;
+        final nextData =
+            jsonDecode(change.nextState.toString()) as Map<String, dynamic>;
 
         currentState = currentState.copyWith(data: currData);
         nextState = nextState.copyWith(data: nextData);
@@ -46,7 +48,8 @@ class Observer extends BlocObserver {
     } else {
       final errorState = Breadcrumb(
         category: 'bloc',
-        message: "onError | (${bloc.runtimeType}'s state) - ${error.toString()}",
+        message:
+            "onError | (${bloc.runtimeType}'s state) - ${error.toString()}",
       );
 
       Sentry.addBreadcrumb(errorState);

@@ -21,10 +21,11 @@ class BottomNavigation extends StatelessWidget {
         topRight: Radius.circular($constants.theme.defaultBorderRadius),
       ),
       child: NavigationBar(
-        height: 60,
+        height: 72,
         selectedIndex: currentPageIndex,
-        onDestinationSelected: (index) => getIt<AppCubit>().changePageIndex(index: index),
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        onDestinationSelected: (index) =>
+            getIt<AppCubit>().changePageIndex(index: index),
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         destinations: destinations,
       ),
     );

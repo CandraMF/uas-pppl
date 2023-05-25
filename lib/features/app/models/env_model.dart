@@ -18,11 +18,13 @@ class EnvModel with _$EnvModel {
     required bool debugApiClient,
     required String restApiUrl,
     required String graphQLApiUrl,
+    required String backendUrl,
   }) = _EnvModel;
 
   EnvModel._();
 
-  factory EnvModel.fromJson(Map<String, dynamic> json) => _$EnvModelFromJson(json);
+  factory EnvModel.fromJson(Map<String, dynamic> json) =>
+      _$EnvModelFromJson(json);
 
   @factoryMethod
   static Future<EnvModel> create() async {

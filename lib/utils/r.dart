@@ -10,6 +10,18 @@ class R {
 
 class _ImageResources {
   const _ImageResources();
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/makanan.webp)
+  final makanan = r'assets/images/product/makanan.webp';
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/minuman.jpg)
+  final minuman = r'assets/images/product/minuman.jpg';
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/paket.jpg)
+  final paket = r'assets/images/product/paket.jpg';
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/snack.jpeg)
+  final snack = r'assets/images/product/snack.jpeg';
 }
 
 class _SvgResources {

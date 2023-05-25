@@ -7,7 +7,8 @@ part 'mutation_bloc.freezed.dart';
 part 'mutation_event.dart';
 part 'mutation_state.dart';
 
-abstract class MutationBloc<T> extends Bloc<MutationEvent<T>, MutationState<T>> {
+abstract class MutationBloc<T>
+    extends Bloc<MutationEvent<T>, MutationState<T>> {
   MutationBloc({required this.options}) : super(const MutationState.initial()) {
     on<MutationEvent<T>>(_onEvent);
 

@@ -37,7 +37,8 @@ class AuthRepository {
       return DC.data(auth);
     } else {
       final alert = AlertModel.alert(
-        message: 'ID or PW is wrong. Please enter test for demo to both fields.',
+        message:
+            'ID or PW is wrong. Please enter test for demo to both fields.',
         type: AlertType.destructive,
       );
 
@@ -47,8 +48,6 @@ class AuthRepository {
 
   Future<DC<AlertModel, void>> logout({required AuthModel auth}) async {
     try {
-      // TODO: Implement custom logout operation with auth model.
-
       return DC.data(null);
     } catch (e) {
       return DC.error(AlertModel.quiet());

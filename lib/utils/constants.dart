@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_boilerplate/features/auth/login/blocs/auth_cubit.dart';
 import 'package:flutter_advanced_boilerplate/features/features/features_screen.dart';
 import 'package:flutter_advanced_boilerplate/features/informations/informations_screen.dart';
+import 'package:flutter_advanced_boilerplate/features/main/main_screen.dart';
+import 'package:flutter_advanced_boilerplate/features/items/items_screen.dart';
+import 'package:flutter_advanced_boilerplate/features/profile/profile_screen.dart';
 import 'package:flutter_advanced_boilerplate/i18n/strings.g.dart';
 import 'package:flutter_advanced_boilerplate/modules/dependency_injection/di.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,7 +13,7 @@ final $constants = Constants();
 
 @immutable
 class Constants {
-  final appTitle = 'Flutter Advanced Boilerplate';
+  final appTitle = 'Warteg Majid';
 
   /// Theme defaults.
   late final theme = _Theme();
@@ -67,13 +70,25 @@ class _Insets {
 @immutable
 class _Shadows {
   final textSoft = [
-    Shadow(color: Colors.black.withOpacity(0.25), offset: const Offset(0, 2), blurRadius: 4),
+    Shadow(
+      color: Colors.black.withOpacity(0.25),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+    ),
   ];
   final text = [
-    Shadow(color: Colors.black.withOpacity(0.6), offset: const Offset(0, 2), blurRadius: 2),
+    Shadow(
+      color: Colors.black.withOpacity(0.6),
+      offset: const Offset(0, 2),
+      blurRadius: 2,
+    ),
   ];
   final textStrong = [
-    Shadow(color: Colors.black.withOpacity(0.6), offset: const Offset(0, 4), blurRadius: 6),
+    Shadow(
+      color: Colors.black.withOpacity(0.6),
+      offset: const Offset(0, 4),
+      blurRadius: 6,
+    ),
   ];
 }
 
@@ -122,41 +137,91 @@ class _Navigation {
   /// Appbar configuration.
   List<AppBar> appbars(BuildContext context) => [
         AppBar(
+          title: const Text(
+            'Beranda',
+          ),
+        ),
+        AppBar(
+          title: const Text(
+            'Promo',
+          ),
+        ),
+        AppBar(
+          title: const Text(
+            'Pesan',
+          ),
+          actions: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: const Icon(MdiIcons.shopping),
+            ),
+          ],
+        ),
+        AppBar(
+          title: const Text(
+            'Riwayat',
+          ),
+        ),
+        AppBar(
           leading: IconButton(
             onPressed: () => getIt<AuthCubit>().logOut(),
             icon: const Icon(MdiIcons.logout),
           ),
-          title: Text(
-            context.t.core.navigation.bottom.features,
+          title: const Text(
+            'Profile',
           ),
         ),
-        AppBar(
-          title: Text(
-            context.t.core.navigation.bottom.informations,
-          ),
-        ),
+        // AppBar(
+        //   title: Text(
+        //     context.t.core.navigation.bottom.informations,
+        //   ),
+        // ),
       ];
 
   /// Bottom navigation configuration.
   List<Widget> bottomNavigationScreens() => const [
+        MainScreen(),
         FeaturesScreen(),
+        ItemsScreen(),
         InformationsScreen(),
+        ProfileScreen(),
       ];
 
   List<NavigationDestination> bottomNavigationItems(BuildContext context) => [
-        NavigationDestination(
-          icon: const Icon(
-            MdiIcons.fire,
+        const NavigationDestination(
+          icon: Icon(
+            MdiIcons.home,
             size: 24,
           ),
-          label: context.t.core.navigation.bottom.features,
+          label: 'Beranda',
         ),
-        NavigationDestination(
-          icon: const Icon(
-            MdiIcons.information,
+        const NavigationDestination(
+          icon: Icon(
+            MdiIcons.ticketPercent,
             size: 24,
           ),
-          label: context.t.core.navigation.bottom.informations,
+          label: 'Promo',
+        ),
+        const NavigationDestination(
+          icon: Icon(
+            MdiIcons.carPickup,
+            size: 24,
+          ),
+          label: 'Pesan',
+        ),
+        const NavigationDestination(
+          icon: Icon(
+            MdiIcons.clipboardTextClock,
+            size: 24,
+          ),
+          label: 'Keranjang',
+        ),
+        const NavigationDestination(
+          icon: Icon(
+            MdiIcons.shieldAccount,
+            size: 24,
+          ),
+          label: 'Profile',
         ),
       ];
 }

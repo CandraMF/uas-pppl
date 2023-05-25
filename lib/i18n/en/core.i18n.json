@@ -2,7 +2,8 @@
     "navigation": {
         "bottom": {
             "features": "Features",
-            "informations": "Informations"
+            "informations": "Informations",
+            "main": "Main"
         }
     },
     "form": {
