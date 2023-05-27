@@ -22,6 +22,12 @@ class _ImageResources {
 
   /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/snack.jpeg)
   final snack = r'assets/images/product/snack.jpeg';
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/promo1.jpg)
+  final promo1 = r'assets/images/product/promo1.jpg';
+
+  /// ![](C:\Users\Admin\Documents\Code\FLUTTER\projects\flutter_advanced_boilerplate\assets/images/product/promo2.png)
+  final promo2 = r'assets/images/product/promo2.png';
 }
 
 class _SvgResources {

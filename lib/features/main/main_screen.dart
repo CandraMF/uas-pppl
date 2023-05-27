@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_boilerplate/features/app/blocs/app_cubit.dart';
 import 'package:flutter_advanced_boilerplate/features/informations/widgets/grid_item.dart';
+import 'package:flutter_advanced_boilerplate/features/main/blocs/get_menu_rest_cubit.dart';
 import 'package:flutter_advanced_boilerplate/features/main/blocs/main_cubit.dart';
+import 'package:flutter_advanced_boilerplate/features/main/models/menu_rest_model.dart';
 import 'package:flutter_advanced_boilerplate/i18n/strings.g.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:slang/builder/utils/string_extensions.dart';
-import 'package:permission_handler/permission_handler.dart';
-
-import 'package:flutter_advanced_boilerplate/modules/dependency_injection/di.dart';
+import 'package:flutter_advanced_boilerplate/features/main/widgets/menu_costumizer_with_photo.dart';
 
 class Menu {
   final String nama;
@@ -23,29 +24,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Menu> menu = [
-      Menu(
-        nama: 'paket',
-        foto: 'paket.jpg',
-        kode: 2,
-      ),
-      Menu(
-        nama: 'makanan',
-        foto: 'makanan.webp',
-        kode: 1,
-      ),
-      Menu(
-        nama: 'minuman',
-        foto: 'minuman.jpg',
-        kode: 3,
-      ),
-      Menu(
-        nama: 'snack',
-        foto: 'snack.jpeg',
-        kode: 4,
-      ),
-    ];
-
     List<Menu> promo = [
       Menu(
         nama: 'promo1',
@@ -140,56 +118,7 @@ class MainScreen extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 160,
-            margin: const EdgeInsets.only(bottom: 24),
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.symmetric(horizontal: 12),
-              children: menu.map(
-                (i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return GestureDetector(
-                        onTap: () {
-                          getIt<MainCubit>().changeMenuId(index: i.kode);
-                          getIt<AppCubit>().changePageIndex(index: 2);
-                        },
-                        child: Container(
-                          width: 120,
-                          alignment: Alignment.center,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(100),
-                                ),
-                                child: SizedBox(
-                                  width: 100,
-                                  height: 100,
-                                  child: Image.asset(
-                                    'assets/images/product/${i.foto}',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                i.nama.capitalize(),
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ).toList(),
-            ),
-          ),
+          const MenuCustomizerWithPhoto(),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Stack(

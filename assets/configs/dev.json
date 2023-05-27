@@ -6,5 +6,6 @@
     "debugApiClient": true,
     "restApiUrl": "https://graphqlzero.almansi.me/api",
     "graphQLApiUrl": "https://graphqlzero.almansi.me/api",
-    "backendUrl": "http://34.101.226.172/public"
+    "backendUrl": "http://10.0.2.2:8000"
 }
+

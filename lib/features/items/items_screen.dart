@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_boilerplate/features/app/models/env_model.dart';
 import 'package:flutter_advanced_boilerplate/features/items/blocs/get_items_rest_cubit.dart';
 import 'package:flutter_advanced_boilerplate/features/main/blocs/main_cubit.dart';
-import 'package:flutter_advanced_boilerplate/features/items/components/type_customizer.dart';
+import 'package:flutter_advanced_boilerplate/features/items/components/menu_customizer_no_photo.dart';
 import 'package:flutter_advanced_boilerplate/features/items/models/item_rest_model.dart';
 import 'package:flutter_advanced_boilerplate/modules/dependency_injection/di.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +11,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
 import 'package:keframe/keframe.dart';
 import 'package:flutter_advanced_boilerplate/features/app/widgets/utils/skeleton_loader.dart';
+import 'package:flutter_advanced_boilerplate/features/main/models/menu_rest_model.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class ItemsScreen extends StatefulWidget {
@@ -96,7 +97,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
                 children: [
                   const SizedBox(
                     height: 75,
-                    child: TypeCostumizer(),
+                    child: MenuCustomizerNoPhoto(),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,7 +177,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
                                                 Radius.circular(10),
                                               ),
                                               child: Image.network(
-                                                'http://34.101.226.172/public/storage/produk/${item.foto}',
+                                                'http://10.0.2.2:8000/storage/produk/${item.foto}',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
